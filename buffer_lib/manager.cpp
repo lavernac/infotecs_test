@@ -5,7 +5,7 @@ TaskManager::TaskManager(const std::string &filename) : logger(filename) {
   this->t = std::thread([this]() {
     while (true) {
       std::unique_lock<std::mutex> lock(this->mtxTask);
-      std::function<void()> func;
+      // std::function<void()> func;
 
       tasksCV.wait(lock, [this]() { return !tasks.empty() || stopThread; });
       if (stopThread && this->tasks.empty()) {

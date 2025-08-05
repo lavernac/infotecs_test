@@ -1,3 +1,6 @@
 # infotecs_test
 
-**git switch develop**
+## usage
+
+Для сборки и запуска программы есть цель в Makefile.
+`make run`

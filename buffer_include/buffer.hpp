@@ -9,7 +9,7 @@ template <typename T>
 class Buffer {
  public:
   Buffer() : data(), d_copy() {}
-  Buffer(int size) : data(size), d_copy(size) {}
+  explicit Buffer(int size) : data(size), d_copy(size) {}
   Buffer(int size, T value) : data(size, value), d_copy(size, value) {}
   void insert(T value);
   void insert(int index, T value);
