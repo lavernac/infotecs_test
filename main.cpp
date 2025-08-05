@@ -76,6 +76,4 @@ int main() {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
   }
-  tRead.logger.createLog(infotecsTest::Logger::INFO, "===== EXIT =====");
-  tChange.logger.createLog(infotecsTest::Logger::INFO, "===== EXIT =====");
 }
