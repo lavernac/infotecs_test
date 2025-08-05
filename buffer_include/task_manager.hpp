@@ -13,19 +13,19 @@ class Logger {
  public:
   enum Level { ERROR, WARNING, INFO };
 
-  Logger(const std::string &filename);
-  ~Logger();
+  explicit Logger(const std::string &filename);
   void createLog(Level level, const std::string &message);
 
  private:
   std::string get_current_time_with_ms();
 
-  std::fstream logfile;
+  std::string filename;
+  std::string logdir_path = "log/";
 };
 
 class TaskManager {
  public:
-  TaskManager(const std::string &filename);
+  explicit TaskManager(const std::string &filename);
   ~TaskManager();
   void stop();
   void addTask(std::function<void()> func);

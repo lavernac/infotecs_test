@@ -9,18 +9,19 @@
 namespace infotecsTest {
 
 Logger::Logger(const std::string &filename) {
+  this->filename = filename;
   namespace fs = std::filesystem;
-  fs::path logdir_path = "log/";
   try {
-    fs::create_directory(logdir_path);
+    fs::create_directory(this->logdir_path);
   } catch (const fs::filesystem_error &e) {
     std::cerr << "Ошибка при создании директории " << logdir_path << ": "
               << e.what() << std::endl;
   }
-  this->logfile.open(std::string(logdir_path) + filename, std::ios::app);
 }
 
 void Logger::createLog(Level level, const std::string &message) {
+  std::fstream logfile;
+  logfile.open(logdir_path + this->filename, std::ios::app);
   std::string new_log;
   switch (level) {
     case INFO:
@@ -36,11 +37,8 @@ void Logger::createLog(Level level, const std::string &message) {
       new_log = "[UNKNOWN TYPE] ";
   }
   new_log += get_current_time_with_ms() + ' ' + message + "\n";
-  this->logfile << new_log;
-}
-
-Logger::~Logger() {
-  if (this->logfile.is_open()) this->logfile.close();
+  logfile << new_log;
+  logfile.close();
 }
 
 std::string Logger::get_current_time_with_ms() {

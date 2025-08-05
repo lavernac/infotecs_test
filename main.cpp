@@ -33,7 +33,6 @@ int main() {
                                  "Removing started");
         for (int i = 0; i < 200000; i++)
           tChange.addTask([&buff]() { buff.remove(); });
-        std::cout << "removing...\n";
         break;
       case 3: {
         int isReverse = -1;
@@ -77,4 +76,6 @@ int main() {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
   }
+  tRead.logger.createLog(infotecsTest::Logger::INFO, "===== EXIT =====");
+  tChange.logger.createLog(infotecsTest::Logger::INFO, "===== EXIT =====");
 }
