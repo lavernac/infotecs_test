@@ -1,6 +1,7 @@
 bin
 obj
 log
+*.zip
 
 # Prerequisites
 *.d
