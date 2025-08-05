@@ -12,6 +12,6 @@ void Buffer<T>::read() {
   for (auto i = d_copy.begin(); i != d_copy.end(); i++) {
     count++;
   }
-  std::cout << count << " elements \n";
+  std::cout << count << " elements in buffer now\n";
 }
 }  // namespace infotecsTest

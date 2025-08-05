@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 
 #include "../buffer_include/buffer.hpp"
 namespace infotecsTest {
@@ -9,7 +8,6 @@ void Buffer<T>::insert(int index, T value) {
   auto iter = this->data.begin();
   iter += index;
   this->data.insert(iter, value);
-  std::cout << "insert complete\n";
 
   std::lock_guard<std::mutex> lock(this->mtxCopy);
   this->d_copy = this->data;

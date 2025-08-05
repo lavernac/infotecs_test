@@ -27,7 +27,6 @@ int main() {
                                  "Inserting started");
         for (int i = 0; i < 200000; i++)
           tChange.addTask([&buff, &i]() { buff.insert(i); });
-        // std::cout << "inserting...\n";
         break;
       case 2:
         tChange.logger.createLog(infotecsTest::Logger::INFO,
